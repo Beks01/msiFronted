@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6 main">
+            <div class="input">
+                <div class="first val">
+                    <span>Felix</span>
+                    <button>f</button>
+                </div>
+                <div class="second val">
+                    <input id="login" type="text" placeholder="Логин"/>
+                </div>
+                <div class="third val">
+                    <input id="password" type="password" placeholder="Пароль"/>
+                </div>
+                <div class="fourth val">
+                    <label>
+                        <select id="role">
+                            <option value="DOCTOR">Врач</option>
+                            <option value="PATIENT">Пациент</option>
+                            <option value="ADMIN">Администратор</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="fifth val">
+                    <button class="button" onclick="validateUser()">
+                        Войти в систему
+                    </button>
+                </div>
+                <div class="sixth val">
+                    Забыли пароль?
+                    Обратитесь с письмом к hospitalAbility@gmail.com
+                </div>
+            </div>
+        </div>
+        <div class="col-6 box">
+            <div class="box__1">
+                <img src="https://helma.healthians.com/stationery/mailer-assets/64071ee506615.png" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function validateUser() {
+        // Get the user input
+        var login = $('#login').val();
+        var password = $('#password').val();
+        var role = $('#role').val();
+
+        // Send the request to the server
+        $.ajax({
+            url: 'http://localhost:8081/api/users/validateUser',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                login: login,
+                password: password,
+                role: role
+            }),
+            success: function (response) {
+                if (response) {
+                    // Redirect to the respective user page based on the role
+                    switch (response.role) {
+                        case 'ADMIN':
+                            window.location.href = 'admin/mainAdmin.html';
+                            break;
+                        case 'PATIENT':
+                            window.location.href = 'patient/mainPatient.html';
+                            break;
+                        case 'DOCTOR':
+                            window.location.href = 'doctor/mainDoctor.html';
+                            break;
+                        default:
+                            alert('Invalid role');
+                            break;
+                    }
+                } else {
+                    // Show an error message if the user is invalid
+                    alert('Invalid credentials');
+                }
+            },
+            error: function () {
+                // Show an error message if the request fails
+                alert('Error validating user');
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

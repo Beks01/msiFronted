@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .col-6 {
+    margin: 15vh 0 15vh 0;
+    width: 50%;
+    height: 463px;
+  }
+  .box{
+    
+    background: #66b3ff;
+    display: flex;
+  }
+  .box h4{
+    color: white;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+  
+  }
+  
+  
+  .box__1{
+    margin: auto 0;
+    align-items: center;
+  }
+  
+  .box__1 img{
+    width: 459px;
+    display: block;
+    margin: 10px auto 0 ;
+    border-radius: 100%;
+  }
+  
+  .main{
+    box-shadow: 0 0  100px 1px  rgba(0,0,0,.19);
+  }
+  .input{
+    margin: 50px;
+  }
+  .val{
+    margin-bottom: 30px;
+  }
+  .first{
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    font-weight: 10;
+  }
+  
+  .first button{
+    cursor: pointer;
+    padding: 10px 17px;
+    border-radius: 50%;
+    border: 1px solid grey;
+    background-color: #fff;
+    color: grey;
+    font-weight: 600;
+    font-size: 17px;
+  }
+  
+  .first button:hover{
+    color: white;
+    background-color: red;
+  }
+  
+  .second input{
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 1px solid grey;
+    background-color: rgb(243, 243, 243);
+  }
+  
+  .third input{
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 1px solid grey;
+    background-color: rgb(243, 243, 243);
+  }
+  
+  .fourth select{
+    height: 40px;
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 30px;
+    border-radius: 100px;
+    border: 1px solid grey;
+    background-color: rgb(243, 243, 243);
+  }
+  
+  .button{
+    width: 100%;
+    color: white;
+    text-align: center;
+    height: 40px;
+    border-radius: 100px;
+    border: 1px solid grey;
+    padding: 10px 0;
+    background: #66b3ff;
+    cursor: pointer;
+  }
+  
+  .button:hover{
+    background: #66b3ff;
+  }
+  .button:active{
+    background: rgb(131, 11, 230);
+  }
+  
+  .sixth{
+    text-align: right;
+    cursor: pointer;
+  }
+  
+  
